@@ -9,7 +9,7 @@ import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 
 /**
- * @author Iker Fernández
+ * @author Iker Abad
  * @ PSP
  * Realiza un programa propio sobre FTP. Por ejemplo: “Crea un programa cliente
  * que acceda a un repositorio FTP y realice diferentes acciones”.
@@ -31,10 +31,10 @@ public class MainMenu {
     public static void main(String[] args) throws IOException {
         // Datos conexión y variables del menú
         FTPClient cliente = new FTPClient();
-        String servFTP = "192.168.1.233";
+        String servFTP = System.getenv().getOrDefault("FTP_HOST", "192.168.1.233");
         System.out.println("Nos conectamos a: " + servFTP);
-        String usuario = "";
-        String clave = "";
+        String usuario = System.getenv().getOrDefault("FTP_USER", "");
+        String clave = System.getenv().getOrDefault("FTP_PASS", "");
         boolean salir = false;
         Scanner input = new Scanner(System.in);
         String option = "";
